@@ -266,17 +266,17 @@ procedure AuxDeseleccionarBotón(fruta) {
 }
 
 function aux_offsetDeRepresentación(fruta) { 
-  return(matching (fruta) select  
-            0 on Banana
-           10 on Frutilla
+  return(matching (fruta) yield  
+            0 on Banana yield
+           10 on Frutilla yield
            boom("No puede suceder: ¿alteraste la definición de Frutas?") otherwise
         )
 }
 
 function aux_offsetDePosición(fruta) { 
-  return(matching (fruta) select  
-           1 on Banana
-           3 on Frutilla
+  return(matching (fruta) yield  
+           1 on Banana yield
+           3 on Frutilla yield
            boom("No puede suceder: ¿alteraste la definición de Frutas?") otherwise
         )
 }

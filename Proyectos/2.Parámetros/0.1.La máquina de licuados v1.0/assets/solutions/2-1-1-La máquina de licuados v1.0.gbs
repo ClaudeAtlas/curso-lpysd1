@@ -1,6 +1,6 @@
 interactive program {
-  K_RETURN -> { HacerLicuadoDeBanana() }
-  K_SPACE  -> { RetirarElVaso()        }
+  on K_RETURN { HacerLicuadoDeBanana() }
+  on K_SPACE  { RetirarElVaso()        }
 }
 
 procedure HacerLicuadoDeBanana() {

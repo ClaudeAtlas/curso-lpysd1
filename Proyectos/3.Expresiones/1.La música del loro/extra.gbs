@@ -29,13 +29,13 @@ procedure AuxMoverAlLoroAl(dir){
 procedure AuxTocar(instrumento) {
     TypeCheck(instrumento, Tambor, "'Tocar_' espera un instrumento como argumento (por ejemplo 'Tocar_ (el tambor)'), pero recibió %1")
     AuxVerificarPresenciaDelLoroParaInstrucción()
-    switch (instrumento) to {
-     Tambor   -> { if (not aux_hay(Tambor))
+    switch (instrumento)  
+     on Tambor   do { if (not aux_hay(Tambor))
                     { BOOM("No puedo tocar el tambor si no está en esta celda")   } }
-     Guitarra -> { if (not aux_hay(Guitarra))
+     on Guitarra do { if (not aux_hay(Guitarra))
                     { BOOM("No puedo tocar la guitarra si no está en esta celda") } }
-     _        -> { AuxGarantizarEsteError(aux_errorCannotHappen())                  }
-    }           
+     else        do { AuxGarantizarEsteError(aux_errorCannotHappen())                  }
+                
     AuxVerificarSiElLoroEstáDisponible()
     AuxComenzarElShow()
 }
@@ -55,9 +55,9 @@ procedure AuxVerificarSiElLoroEstáDisponible() {
 function aux_elLoro()        { return(Azul)  }
 function aux_showComenzado() { return(Rojo)  }
 function aux_colorPara(instrumento) { 
-   return(choose
-      Negro                   when (instrumento==Tambor)
-      Verde                   when (instrumento==Guitarra)
+   return(choose yield
+      Negro                   when (instrumento==Tambor) yield
+      Verde                   when (instrumento==Guitarra) yield
       aux_errorCannotHappen() otherwise
    ) 
 }

@@ -1,4 +1,4 @@
 interactive program {
-  K_RETURN -> { ...             }
-  K_SPACE  -> { RetirarElVaso() }
+  on K_RETURN { ...             }
+  on K_SPACE  { RetirarElVaso() }
 }

@@ -815,35 +815,35 @@ function aux_esCódigoParaLaLetra(códigoLetra) {
 }
 
 function aux_códigoParaLaLetra(letra) {
-  return (choose
-    10 when (letra == Espacio)
-    11 when (letra == A)
-    12 when (letra == B)
-    13 when (letra == C)
-    14 when (letra == D)
-    15 when (letra == E)
-    16 when (letra == F)
-    17 when (letra == G)
-    18 when (letra == H)
-    19 when (letra == I)
-    20 when (letra == J)
-    21 when (letra == K)
-    22 when (letra == L)
-    23 when (letra == M)
-    24 when (letra == N)
-    25 when (letra == Ñ)
-    26 when (letra == O)
-    27 when (letra == P)
-    28 when (letra == Q)
-    29 when (letra == R)
-    30 when (letra == S)
-    31 when (letra == T)
-    32 when (letra == U)
-    33 when (letra == V)
-    34 when (letra == W)
-    35 when (letra == X)
-    36 when (letra == Y)
-    37 when (letra == Z)
+  return (choose yield
+    10 when (letra == Espacio) yield
+    11 when (letra == A) yield
+    12 when (letra == B) yield
+    13 when (letra == C) yield
+    14 when (letra == D) yield
+    15 when (letra == E) yield
+    16 when (letra == F) yield
+    17 when (letra == G) yield
+    18 when (letra == H) yield
+    19 when (letra == I) yield
+    20 when (letra == J) yield
+    21 when (letra == K) yield
+    22 when (letra == L) yield
+    23 when (letra == M) yield
+    24 when (letra == N) yield
+    25 when (letra == Ñ) yield
+    26 when (letra == O) yield
+    27 when (letra == P) yield
+    28 when (letra == Q) yield
+    29 when (letra == R) yield
+    30 when (letra == S) yield
+    31 when (letra == T) yield
+    32 when (letra == U) yield
+    33 when (letra == V) yield
+    34 when (letra == W) yield
+    35 when (letra == X) yield
+    36 when (letra == Y) yield
+    37 when (letra == Z) yield
     boom("Al extender las letras, deberías extender también las funciones de codificación") otherwise
     )
 }
@@ -852,51 +852,51 @@ function aux_letraParaElCódigo(códigoLetra) {
   // PRECONDICIÓN: el código es válido, o sea, corresponde a una letra 
   //               (está entre aux_minCódigoParaLaLetra() y aux_maxCódigoParaLaeLetra())
   if (not aux_esCódigoParaLaLetra(códigoLetra)) { BOOM("No es un código de letra válido") }
-  return (choose
-            Espacio when (códigoLetra == 10)
-            A       when (códigoLetra == 11)
-            B       when (códigoLetra == 12)
-            C       when (códigoLetra == 13)
-            D       when (códigoLetra == 14)
-            E       when (códigoLetra == 15)
-            F       when (códigoLetra == 16)
-            G       when (códigoLetra == 17)
-            H       when (códigoLetra == 18)
-            I       when (códigoLetra == 19)
-            J       when (códigoLetra == 20)
-            K       when (códigoLetra == 21)
-            L       when (códigoLetra == 22)
-            M       when (códigoLetra == 23)
-            N       when (códigoLetra == 24)
-            Ñ       when (códigoLetra == 25)
-            O       when (códigoLetra == 26)
-            P       when (códigoLetra == 27)
-            Q       when (códigoLetra == 28)
-            R       when (códigoLetra == 29)
-            S       when (códigoLetra == 30)
-            T       when (códigoLetra == 31)
-            U       when (códigoLetra == 32)
-            V       when (códigoLetra == 33)
-            W       when (códigoLetra == 34)
-            X       when (códigoLetra == 35)
-            Y       when (códigoLetra == 36)
-            Z       when (códigoLetra == 37)
+  return (choose yield
+            Espacio when (códigoLetra == 10) yield
+            A       when (códigoLetra == 11) yield
+            B       when (códigoLetra == 12) yield
+            C       when (códigoLetra == 13) yield
+            D       when (códigoLetra == 14) yield
+            E       when (códigoLetra == 15) yield
+            F       when (códigoLetra == 16) yield
+            G       when (códigoLetra == 17) yield
+            H       when (códigoLetra == 18) yield
+            I       when (códigoLetra == 19) yield
+            J       when (códigoLetra == 20) yield
+            K       when (códigoLetra == 21) yield
+            L       when (códigoLetra == 22) yield
+            M       when (códigoLetra == 23) yield
+            N       when (códigoLetra == 24) yield
+            Ñ       when (códigoLetra == 25) yield
+            O       when (códigoLetra == 26) yield
+            P       when (códigoLetra == 27) yield
+            Q       when (códigoLetra == 28) yield
+            R       when (códigoLetra == 29) yield
+            S       when (códigoLetra == 30) yield
+            T       when (códigoLetra == 31) yield
+            U       when (códigoLetra == 32) yield
+            V       when (códigoLetra == 33) yield
+            W       when (códigoLetra == 34) yield
+            X       when (códigoLetra == 35) yield
+            Y       when (códigoLetra == 36) yield
+            Z       when (códigoLetra == 37) yield
             boom("¡NO DEBERÍA SUCEDER! Revisar aux_esCódigoParaLaLetra.") otherwise
           )
 }
 
 function aux_códigoParaLaLetraSiguiente(letra) {
   códigoLetra := aux_códigoParaLaLetra(letra)
-  return (choose 
-           aux_minCódigoParaLaLetra()  when (códigoLetra == aux_maxCódigoParaLaLetra())
+  return (choose yield 
+           aux_minCódigoParaLaLetra()  when (códigoLetra == aux_maxCódigoParaLaLetra()) yield
            códigoLetra+1               otherwise
          )
 }
 
 function aux_códigoParaLaLetraPrevia(letra) {
   códigoLetra := aux_códigoParaLaLetra(letra)
-  return (choose 
-           aux_maxCódigoParaLaLetra()  when (códigoLetra == aux_minCódigoParaLaLetra())
+  return (choose yield 
+           aux_maxCódigoParaLaLetra()  when (códigoLetra == aux_minCódigoParaLaLetra()) yield
            códigoLetra-1               otherwise
          )
 }
@@ -1037,11 +1037,11 @@ function aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo) {
 }
 
 function aux_códigoParaElPaloDeCartaEspañola(palo) { 
-  return (choose 
-     1 when (palo == Bastos )
-     2 when (palo == Copas  )
-     3 when (palo == Espadas)
-     4 when (palo == Oros   )
+  return (choose yield 
+     1 when (palo == Bastos ) yield
+     2 when (palo == Copas  ) yield
+     3 when (palo == Espadas) yield
+     4 when (palo == Oros   ) yield
      boom("Al extender los palos de carta española, deberías extender también las funciones de codificación") otherwise
   )
 }
@@ -1050,27 +1050,27 @@ function aux_paloDeCartaEspañolaParaElCódigo(códigoPalo) {
   // PRECONDICIÓN: el código es válido, o sea, corresponde a un palo de carta española
   //              (está entre aux_minCódigoParaElPaloDeCartaEspañola() y aux_maxCódigoParaElPaloDeCartaEspañola())
   if (not aux_esCódigoParaElPaloDeCartaEspañola(códigoPalo)) { BOOM("No es un código de palo de carta española válido") }
-  return (choose
-     Bastos  when (códigoPalo == 1)
-     Copas   when (códigoPalo == 2)
-     Espadas when (códigoPalo == 3)
-     Oros    when (códigoPalo == 4)
+  return (choose yield
+     Bastos  when (códigoPalo == 1) yield
+     Copas   when (códigoPalo == 2) yield
+     Espadas when (códigoPalo == 3) yield
+     Oros    when (códigoPalo == 4) yield
      boom("¡NO DEBERÍA SUCEDER! Revisar esCódigoParaElPaloDeCartaEspañola.") otherwise
   )
 }
 
 function aux_códigoParaElPaloDeCartaEspañolaSiguiente(palo) {
   códigoPalo := aux_códigoParaElPaloDeCartaEspañola(palo)
-  return (choose 
-           aux_minCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_maxCódigoParaElPaloDeCartaEspañola())
+  return (choose yield 
+           aux_minCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_maxCódigoParaElPaloDeCartaEspañola()) yield
            códigoPalo+1                              otherwise
          )
 }
 
 function aux_códigoParaElPaloDeCartaEspañolaPrevio(palo) {
   códigoPalo := aux_códigoParaElPaloDeCartaEspañola(palo)
-  return (choose 
-           aux_maxCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_minCódigoParaElPaloDeCartaEspañola())
+  return (choose yield 
+           aux_maxCódigoParaElPaloDeCartaEspañola()  when (códigoPalo == aux_minCódigoParaElPaloDeCartaEspañola()) yield
            códigoPalo-1                              otherwise
          )
 }
@@ -1262,31 +1262,31 @@ function aux_valorDeCartaEspañolaParaElCódigo(códigoValor) {
 // PARA aux_códigoParaElValorDeCartaEspañolaSiguiente y aux_códigoParaElValorDeCartaEspañolaPrevio VER SECCIÓN DE MODULARIZACIÓN DE 40 a 50 cartas
 //-----------
 function aux_códigoParaElValorDeCartaEspañolaDe50Siguiente(valor) {
-  return (choose 
-           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
+  return (choose yield 
+           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola()) yield
            valor+1                                    otherwise
          )
 }
 
 function aux_códigoParaElValorDeCartaEspañolaDe50Previo(valor) {
-  return (choose 
-           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
+  return (choose yield 
+           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola()) yield
            valor-1                                    otherwise
          )
 }
 
 function aux_códigoParaElValorDeCartaEspañolaDe40Siguiente(valor) {
-  return (choose 
-           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola())
-           10                                         when (valor == 7)
+  return (choose yield 
+           aux_minCódigoParaElValorDeCartaEspañola()  when (valor == aux_maxCódigoParaElValorDeCartaEspañola()) yield
+           10                                         when (valor == 7) yield
            valor+1                                    otherwise
          )
 }
 
 function aux_códigoParaElValorDeCartaEspañolaDe40Previo(valor) {
-  return (choose 
-           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola())
-           7                                          when (valor == 10)
+  return (choose yield 
+           aux_maxCódigoParaElValorDeCartaEspañola()  when (valor == aux_minCódigoParaElValorDeCartaEspañola()) yield
+           7                                          when (valor == 10) yield
            valor-1                                    otherwise
          )
 }
@@ -1455,12 +1455,12 @@ function aux_dameElValor(carta) {
 
 // ESTÁNDAR
 function aux_esMenorCartaEspañola(carta1, carta2) {
-  return(choose
+  return(choose yield
            /* si la carta1 no es comodín, la carta2 debe serlo, y entonces carta1 es menor,
             y si la carta1 es comodín, la carta1 NO puede ser menor que la carta2 (a lo sumo es igual)
            */
            not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
-                                                                          || aux_esComodín(carta2))
+                                                                          || aux_esComodín(carta2)) yield
            aux_esMenorPaloDeCartaEspañola(aux_dameElPalo(carta1)
                                           ,aux_dameElPalo(carta2)) 
         || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
@@ -1470,12 +1470,12 @@ function aux_esMenorCartaEspañola(carta1, carta2) {
 }
          
 function aux_esMayorCartaEspañola(carta1, carta2) {
-  return(choose
+  return(choose yield
            /* si la carta2 no es comodín, la carta1 debe serlo, y entonces carta1 es mayor
             y si la carta2 es comodín, la carta1 NO puede ser mayor que la carta2 (a lo sumo es igual)
            */
            not aux_esComodín(carta1)                                   when (aux_esComodín(carta1) 
-                                                                          || aux_esComodín(carta2))
+                                                                          || aux_esComodín(carta2)) yield
            aux_esMayorPaloDeCartaEspañola(aux_dameElPalo(carta1)
                                          ,aux_dameElPalo(carta2)) 
         || (aux_dameElPalo(carta1) == aux_dameElPalo(carta2) 
@@ -1663,8 +1663,8 @@ function aux_producirDatoCarta(códigoValor, códigoPalo) {
                  y códigoPalo es un código de palo de carta española válido
   */
  if (not (aux_sonValorYPaloDeCartaEspañola(códigoValor, códigoPalo))) { BOOM("El código del valor o del palo no es válido") }
- return (choose
-            100*códigoPalo                when (aux_esCódigoParaElComodín(códigoPalo))
+ return (choose yield
+            100*códigoPalo                when (aux_esCódigoParaElComodín(códigoPalo)) yield
             100*códigoPalo + códigoValor  otherwise
          )
 }
@@ -1686,8 +1686,8 @@ function aux_esCódigoParaLaCartaEspañola(códigoCartaEspañola) {
 }
 
 function aux_códigoParaLaCartaEspañola(carta) { 
-  return(choose
-           aux_producirDatoCarta(0, aux_códigoParaElComodín())                      when (aux_esComodín(carta))
+  return(choose yield
+           aux_producirDatoCarta(0, aux_códigoParaElComodín())                      when (aux_esComodín(carta)) yield
            aux_producirDatoCarta(aux_códigoParaElValorDeCartaEspañola(valor(carta))
                                 ,aux_códigoParaElPaloDeCartaEspañola(palo(carta)))  otherwise
         ) 
@@ -1697,8 +1697,8 @@ function aux_cartaEspañolaParaElCódigo(códigoCarta) {
   // PRECONDICIÓN: el códigoDatoCarta corresponde a los de una carta válida
   if (not aux_esCódigoParaLaCartaEspañola(códigoCarta)) { BOOM("No es un código de carta válido") }
   let (códigoValor, códigoPalo) := aux_analizarDatoCarta(códigoCarta)
-  return(choose
-           aux_armarComodín()                                    when (aux_esCódigoParaElComodín(códigoPalo))
+  return(choose yield
+           aux_armarComodín()                                    when (aux_esCódigoParaElComodín(códigoPalo)) yield
            aux_armarCartaEspañola(
                aux_valorDeCartaEspañolaParaElCódigo(códigoValor)
               ,aux_paloDeCartaEspañolaParaElCódigo(códigoPalo))  otherwise
